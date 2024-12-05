@@ -43,8 +43,10 @@ export class UserService {
     if (!user) {
       throw new NotFoundException('User not found');
     }
-
+  
     await this.userRepository.update(id, data);
+    
+    // Recupera o usuário atualizado
     return await this.findOne(id);
   }
 
